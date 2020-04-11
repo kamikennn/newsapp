@@ -85,42 +85,42 @@ WSGI_APPLICATION = 'newspaper_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-# [START db_setup]
-if os.getenv('GAE_APPLICATION', None):
-    # Running on production App Engine, so connect to Google Cloud SQL using
-    # the unix socket at /cloudsql/<your-cloudsql-connection string>
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/django-project-273013:asia-northeast2:kamikeninstance',
-            'USER': 'kamiken',
-            'PASSWORD': 'klx25osr',
-            'NAME': 'djangosample',
-        }
-    }
-else:
-    # Running locally so connect to either a local MySQL instance or connect 
-    # to Cloud SQL via the proxy.  To start the proxy via command line: 
-    #    $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306 
-    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'HOST': '127.0.0.1',
-            'PORT': '3306',
-            'NAME': 'djangosample',
-            'USER': 'kamiken',
-            'PASSWORD': 'klx25osr',
-        }
-    }
-# [END db_setup]
+# # [START db_setup]
+# if os.getenv('GAE_APPLICATION', None):
+#     # Running on production App Engine, so connect to Google Cloud SQL using
+#     # the unix socket at /cloudsql/<your-cloudsql-connection string>
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'HOST': '/cloudsql/django-project-273013:asia-northeast2:kamikeninstance',
+#             'USER': 'kamiken',
+#             'PASSWORD': '',
+#             'NAME': 'djangosample',
+#         }
+#     }
+# else:
+#     # Running locally so connect to either a local MySQL instance or connect 
+#     # to Cloud SQL via the proxy.  To start the proxy via command line: 
+#     #    $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306 
+#     # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'HOST': '127.0.0.1',
+#             'PORT': '3306',
+#             'NAME': 'djangosample',
+#             'USER': '',
+#             'PASSWORD': '',
+#         }
+#     }
+# # [END db_setup]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -170,7 +170,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = 'SG.Ll1_eDGITMGW3kzUkiEzcg.GZEcFCRHBpRSR5DWR4HiFBUQjAGkB_eQC25o3R0CcS0'
+EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_API_KEY = os.environ['EMAIL_API_KEY']
+# EMAIL_API_KEY = os.environ['EMAIL_API_KEY']
